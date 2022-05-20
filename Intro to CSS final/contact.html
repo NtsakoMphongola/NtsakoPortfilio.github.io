@@ -5,6 +5,7 @@
         <meta charset="UTF-8" />        
         <meta name="Portfolio Website" content="width=devic-width, initial-scale=1.0">
         <link  href="contact.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="contact.js">
         <a href="https://www.ncmphongola.com/"> </a>
     </head>
 
@@ -42,6 +43,7 @@
                 </form>  
             </div>
 
+         
             <footer class = "Footer">
                 <div class = "Footer"></div>
                     <div Class= "footer-section">
@@ -53,90 +55,5 @@
                     </div>
                 </div>
             </footer>
-
-            <script src="https://formspree.io/f/xvoldjyw"></script>
-            <script>
-                function sendEmail(){
-                    sendEmail({
-                        Host : ".gmail.com",
-                        Username : "ntsakomphongola@gmail.com",
-                        Password : "DDAD3E38E5FFD194ACF706504C6986C3A756",
-                        To : 'ntsakomphongola@gmail.com',
-                        From : document.getElementById("email").value,
-                        Subject : "New message of enquary",
-                        Body : "Full name: " + document.getElementById("Full name").value + "<br> Email: " + document.getElementById("email").value
-                        + " <br> Phone No: " + document.getElementById("Phone").value + "<br> Mess"
-                        ,
-                    }).then(
-                        message => alert(message)
-                    );
-                }
-
-                     var form = document.getElementById("my-form");
-    
-                         async function handleSubmit(event) {
-                             event.preventDefault();
-                              var status = document.getElementById("my-form-status");
-                              var data = new FormData(event.target);
-                       fetch(event.target.action, {
-                             method: form.method,
-                            body: data,
-                    headers: {
-                             'Accept': 'application/json'
-                    }
-                         }).then(response => {
-                          if (response.ok) {
-                          status.innerHTML = "Thanks for your submission!";
-                              form.reset()
-                                  } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-            } else {
-              status.innerHTML = "Oops! There was a problem submitting your form"
-            }
-          })
-        }
-      }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form"
-      });
-    }
-    form.addEventListener("submit", handleSubmit)
-
-            </script>
-
-<script>
-    var form = document.getElementById("my-form");
-    
-    async function handleSubmit(event) {
-      event.preventDefault();
-      var status = document.getElementById("my-form-status");
-      var data = new FormData(event.target);
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          status.innerHTML = "Thanks for your submission!";
-          form.reset()
-        } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-            } else {
-              status.innerHTML = "Oops! There was a problem submitting your form"
-            }
-          })
-        }
-      }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form"
-      });
-    }
-    form.addEventListener("submit", handleSubmit)
-</script>
-
         </body>
 </html>
