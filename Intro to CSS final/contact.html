@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cartoon Network</title>
+        <meta charset="UTF-8" />        
+        <meta name="Portfolio Website" content="width=devic-width, initial-scale=1.0">
+        <link  href="contact.css" rel="stylesheet" type="text/css">
+        <a href="https://www.ncmphongola.com/"> </a>
+    </head>
+
+    <header>
+        <table id="tableHeader" >
+            <tr>
+                <td>
+                    <img src ="logo.png" alt="site logo" class="logo"  >
+                </td>
+
+                <td align="right">
+                    <nav class="list-menu">
+                        <a href="index.html" class="menu-move">Home</a>
+                        <a href="about.html" class="menu-move">About me</a>
+                        <a href="contact.html" class="menu-move">Contact</a>
+                </nav>
+                </td>
+            </tr>
+        </table>
+           
+    </header>
+        <body>
+            <div class="container">
+                <form action="https://formspree.io/f/xvoldjyw" method="post">
+                    <h2>CONTACT FORM</h2> 
+                    <label for="Full Name">Full name:</label>
+                    <input name="Full name" id="Full Name" placeholder="Enter your full name" required>
+                    <label for="Phone No">Phone No:</label>
+                    <input name="Phone No" id="Phone" placeholder="Enter your phone number" required>
+                    <label for="Email">Email address:</label>
+                    <input name="Email" id="email" placeholder="Enter your email address" required>
+                    <label for="Message">Message:</label>
+                    <textarea id="Message" rows="5" placeholder="Type your message"></textarea>
+                    <button type="submit "><b>Send</b></button>
+                </form>  
+            </div>
+
+            <footer class = "Footer">
+                <div class = "Footer"></div>
+                    <div Class= "footer-section">
+                        <p><U>Contact info</U> <br>
+                       Tell: 061 584 5136<br> 
+                       Email: ntsakomphongola@gmail.com<br>
+                       WhatsApp: 061 584 5136<br>
+                       Twitter: @ntsakochesterh</p>
+                    </div>
+                </div>
+            </footer>
+
+            <script src="https://formspree.io/f/xvoldjyw"></script>
+            <script>
+                function sendEmail(){
+                    sendEmail({
+                        Host : ".gmail.com",
+                        Username : "ntsakomphongola@gmail.com",
+                        Password : "DDAD3E38E5FFD194ACF706504C6986C3A756",
+                        To : 'ntsakomphongola@gmail.com',
+                        From : document.getElementById("email").value,
+                        Subject : "New message of enquary",
+                        Body : "Full name: " + document.getElementById("Full name").value + "<br> Email: " + document.getElementById("email").value
+                        + " <br> Phone No: " + document.getElementById("Phone").value + "<br> Mess"
+                        ,
+                    }).then(
+                        message => alert(message)
+                    );
+                }
+
+                     var form = document.getElementById("my-form");
+    
+                         async function handleSubmit(event) {
+                             event.preventDefault();
+                              var status = document.getElementById("my-form-status");
+                              var data = new FormData(event.target);
+                       fetch(event.target.action, {
+                             method: form.method,
+                            body: data,
+                    headers: {
+                             'Accept': 'application/json'
+                    }
+                         }).then(response => {
+                          if (response.ok) {
+                          status.innerHTML = "Thanks for your submission!";
+                              form.reset()
+                                  } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+
+            </script>
+
+<script>
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+</script>
+
+        </body>
+</html>
